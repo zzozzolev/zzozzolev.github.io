@@ -17,7 +17,7 @@ description              : "자연어 처리에 대해 올리는 블로그입니
 url                      : "https://zzozzolev.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+teaser                   : "/assets/images/teaser.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -86,9 +86,9 @@ analytics:
 # Site Author
 author:
   name             : "zzlev"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/octodex.png"
   bio              : "NLP를 공부하는 중입니다."
-  location         : "Somewhere"
+  location         : "Seoul"
   email            :
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
