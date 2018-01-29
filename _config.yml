@@ -86,7 +86,7 @@ analytics:
 # Site Author
 author:
   name             : "zzlev"
-  avatar           : "/assets/images/octodex.png"
+  avatar           : "https://i.imgur.com/zGalsyo.png"
   bio              : "NLP를 공부하는 중입니다."
   location         : "Seoul"
   email            :
