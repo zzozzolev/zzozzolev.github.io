@@ -10,10 +10,10 @@ minimal_mistakes_skin    : "mint" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Koding"
+title                    : "NLP with Koding"
 title_separator          : "-"
-name                     : "zzlev"
-description              : "자연어 처리를 공부하는 중입니다."
+name                     : "koding"
+description              : "자연어 처리에 대해 올리는 블로그입니다."
 url                      : "https://zzozzolev.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -85,9 +85,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "koding"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
+  bio              : "NLP를 공부하는 중입니다."
   location         : "Somewhere"
   email            :
   uri              :
