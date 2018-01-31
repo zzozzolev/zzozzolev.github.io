@@ -1,7 +1,9 @@
-# RNTN을 이용한 Sentimental Semantic 분석
-
-
-
+---
+comments: true
+title: "Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank Review"
+date: 2017-07-18 
+categories: 2013 RNTN sentiment-analysis 
+---
 ##  Recursive Neural Models
 
 ![rnn 접근](C:\Users\노혜미\ybigta\17-2 사이언스\RNN\rnn 접근.JPG)
@@ -119,3 +121,6 @@
 
 - sentimental semantic을 분석하는 데는 RNTN이 현재 짱짱이다.
 - 긍정과 부정표현을 구분해낼 뿐만 아니라, 긍정 표현이 부정 표현이 되는 것과 부정 표현이 중립 표현이 되는 것 또한 정확히 포착해낼 수 있다.
+
+## Reference
+-[Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank](https://nlp.stanford.edu/~socherr/EMNLP2013_RNTN.pdf)
