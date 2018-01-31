@@ -139,4 +139,5 @@ categories: 2016 LSTM CNN CRF sequence-labeling
 - 우리의 model은 multi-task learning 접근법을 통해 더 발전될 수 있을 것이다. 
 
 <script id="dsq-count-scr" src="//nlp-with-koding.disqus.com/count.js" async></script>
+
 <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
