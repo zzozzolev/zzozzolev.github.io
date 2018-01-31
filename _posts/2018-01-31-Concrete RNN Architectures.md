@@ -1,7 +1,9 @@
-YBIGTA 10기 노혜미
-
-# Concrete RNN Architectures
-
+---
+comments: true
+title: "Concrete RNN Architectures"
+date: 2017-08-04
+categories: 2015 RNN 
+---
 1. Simple RNN (SRNN)
 2. Long Short-Term Memory (LSTM)
 3. Gated Recurrent Unit (GRU).
@@ -169,4 +171,7 @@ $$
 
 ## Reference
 
-- Yoav Goldberg(2015), A Primer on Neural Network Models for Natural Language Processing - http://u.cs.biu.ac.il/~yogo/nnlp.pdf 
+- [Yoav Goldberg(2015), A Primer on Neural Network Models for Natural Language Processing](http://u.cs.biu.ac.il/~yogo/nnlp.pdf)
+
+<script id="dsq-count-scr" src="//nlp-with-koding.disqus.com/count.js" async></script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
