@@ -1,5 +1,9 @@
-# Lecture 8: Recurrent Neural Networks and Language Models
-
+---
+comments: true
+title: "[Stanford NLP] Lecture 8-Recurrent Neural Networks and Language Models"
+date: 2017-10-14 
+categories: 2017 stanford-nlp RNN Language-model
+---
 강의 출처:
 
 https://www.youtube.com/watch?v=Keqep_PKrY8&index=8&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6
@@ -163,3 +167,5 @@ https://www.youtube.com/watch?v=Keqep_PKrY8&index=8&list=PL3FW7Lu3i5Jsnh1rnUwq_T
 - bidirectional하게 할 뿐만 아니라, 거기다 deep을 더할 수도 있다.
 - t번째 hidden state를 계산할 때 t-1번째의 hidden state를 고려할 뿐만 아니라 밑에 있는 hidden layer의 t번째 hidden state역시 고려한다. 
 
+<script id="dsq-count-scr" src="//nlp-with-koding.disqus.com/count.js" async></script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
