@@ -147,7 +147,7 @@ $$\mathcal{Q}$$는 가능한 쿼리 공간
 - Query Variable Markov Model (QVMM)을 추가적인 feature로 사용해서 추정된 score를 사용했다.
 - character n-gram similarity는 두 문자열 사이의 유사도를 n-gram을 이용해 알아내는 방법이다. 
 - bi-gram일때, 
-$$similarity(korea, korean) = \frac{2*|\{ko,or,re,ea\}|}{|\{ko,or,re,ea\}|+|\{ko,or,re,ea,an\}|}=\frac{2*4}{4+5}\approx 0.89$$
+$$similarity(korea, korean) = \frac{2X|\{ko,or,re,ea\}|}{|\{ko,or,re,ea\}|+|\{ko,or,re,ea,an\}|}=\frac{2X4}{4+5}\approx 0.89$$
 - markov model은 stochastic한 모델이다. 미래의 상태는 이전에 발생한 사건이 아니라 오직 현재의 상태에만 의존한다고 가정한다.
 
 **HRED Score**
