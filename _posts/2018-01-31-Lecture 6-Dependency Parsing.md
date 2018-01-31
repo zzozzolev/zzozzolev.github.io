@@ -1,5 +1,9 @@
-# Lecture 6: Dependency Parsing
-
+---
+comments: true
+title: "[Stanford NLP] Lecture 6-Dependency Parsing"
+date: 2017-09-23 
+categories: 2017 stanford-nlp GloVe word-representation 
+---
 강의 출처: https://www.youtube.com/watch?v=PVShkZgXznc&index=6&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6
 
 ![Imgur](https://i.imgur.com/F00xB8K.png)
@@ -165,3 +169,5 @@
 - 잘 학습되면 좋은 dependency parser를 만들 수 있다고 한다.
 - 구조가 엄청 복잡하지 않아서 만드는 것도 시도해볼만 할 것 같다...!
 
+<script id="dsq-count-scr" src="//nlp-with-koding.disqus.com/count.js" async></script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
