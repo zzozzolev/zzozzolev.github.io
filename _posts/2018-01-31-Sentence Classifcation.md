@@ -1,9 +1,9 @@
-
-YBIGTA 10기 노혜미
-
-# Classification, flagged or not flagged1 <br>- term existence와 tf-idf 이용하기
-
-
+---
+comments: true
+title: "Sentence Classifcation"
+date: 2017-11-02
+categories: binary-classification tf-idf cosine-similarity
+---
 ```python
 import pandas as pd
 import numpy as np
@@ -547,3 +547,5 @@ print(len(y_test), "개 중에", correct,"개 맞췄음.")
 - https://stackoverflow.com/questions/12118720/python-tf-idf-cosine-to-find-document-similarity
 
 
+<script id="dsq-count-scr" src="//nlp-with-koding.disqus.com/count.js" async></script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
