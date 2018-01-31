@@ -1,5 +1,9 @@
-# Improved Semantic RepresentationsFrom Tree-Structured LongShort-TermMemory Networks
-
+---
+comments: true
+title: "Improved Semantic RepresentationsFrom Tree-Structured LongShort-TermMemory Networks"
+date: 2018-01-18
+categories: 2015 Tree-LSTM 
+---
 ## 1. Long Short-Term Memory Networks
 
 ### 1.1 Overview
@@ -160,3 +164,6 @@ $\lambda$ :  L2 regularization의 hyperparameter
 - Introduction to Tree-LSTMs (해당 논문에 대한 presentation)                                                  https://www.slideshare.net/tuvistavie/tree-lstm
 - https://en.wikipedia.org/wiki/Head_(linguistics)
 - http://taweb.aichi-u.ac.jp/tmgross/DG.html
+
+<script id="dsq-count-scr" src="//nlp-with-koding.disqus.com/count.js" async></script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
