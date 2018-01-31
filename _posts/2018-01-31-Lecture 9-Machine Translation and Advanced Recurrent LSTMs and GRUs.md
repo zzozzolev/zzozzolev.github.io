@@ -1,5 +1,9 @@
-# Lecture 9: Machine Translation and Advanced Recurrent LSTMs and GRUs      
-
+---
+comments: true
+title: "[Stanford NLP] Lecture 9-Machine Translation and Advanced Recurrent LSTMs and GRUs"
+date: 2017-10-27 
+categories: 2017 stanford-nlp machine-translation LSTM GRU
+---
 출처: https://www.youtube.com/watch?v=QuELiw8tbx8&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6&index=9&t=10s     
 
 *traditional machine transaction은 생략했다*
@@ -97,3 +101,5 @@
 
 *이후는 성능비교, 현황과 같이 부가적인 것이라 생략한다.*
 
+<script id="dsq-count-scr" src="//nlp-with-koding.disqus.com/count.js" async></script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
