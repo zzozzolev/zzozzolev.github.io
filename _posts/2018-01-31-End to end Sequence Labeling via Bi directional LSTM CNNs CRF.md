@@ -33,7 +33,7 @@ categories: 2016 LSTM CNN CRF sequence-labeling
 
 ### 2.2. Bi-directional LSTM
 - 많은 sequence labeling task들에서는 이전 context와 이후 context를 모두 이용하는 게 좋다.
-- 하지만 LSTM의 hidden state $h_t$는 이전 context에서만 정보를 가져온다. 
+- 하지만 LSTM의 hidden state $$h_t$$는 이전 context에서만 정보를 가져온다. 
 - 이러한 단점을 보완한게 바로 Bi-directional LSTM이다.
 - 기본적인 아이디어는 각각의 forward hidden state와 backward hidden state를 이용해 이전과 이후 정보를 이용하자는 것이다. 
   두 개의 hidden state는 final output을 위해 concatenate 된다.
@@ -43,22 +43,22 @@ categories: 2016 LSTM CNN CRF sequence-labeling
 - 각각의 label을 독립적으로 디코드 하는게 아니라, 주변을 보고 labeling을 한다고 보면 될 것 같다.
 - 주어진 input sequence에 대해 주변부를 보고 제일 좋은 label chain을 찾는 것이다.
 - 예를 들어, POS tagging에서 명사 다음에 동사보다는 형용사가 올 확률이 높다. 그렇다면 label chain은 명사-동사가 아닌 명사-형용사가 더 좋을 것이다.
-- z는 일반적인(generic) input sequence를 나타내고, z = {$z_1$, ..., $z_n$} 이다. $z_i$는 i번째 단어에 대한 input vector이다.
-- y는 z에 대한 label의 일반적인 sequence이다. y = {$y_1$, ..., $y_n$} (위와 같이 input이 주어졌을 때, 보통의 label)
+- z는 일반적인(generic) input sequence를 나타내고, $$z = {z_1, ..., z_n}$$ 이다. $$z_i$$는 i번째 단어에 대한 input vector이다.
+- y는 z에 대한 label의 일반적인 sequence이다. $$y = {y_1, ..., y_n}$$ (위와 같이 input이 주어졌을 때, 보통의 label)
 - y(z)는 z에 대한 가능한 label sequence의 집합을 나타낸다.
 - z가 주어졌을 때, 모든 가능한 label sequence y에 대한 conditional probability는 다음과 같이 정의된다.
 
 ![Imgur](https://i.imgur.com/X0jYbXK.png)
 
-- $\psi_i(y',y,z)=exp(W^T_{y',y}z_i+b_{y',y})$
-- $W^T_{y',y}$와 $b_{y',y}$는 label pair (y',y)에 대한 weight vector와 bias
+- $$\psi_i(y',y,z)=exp(W^T_{y',y}z_i+b_{y',y})$$
+- $$W^T_{y',y}$$와 $$b_{y',y}$$는 label pair (y',y)에 대한 weight vector와 bias
 
 - CRF 학습을 위해 maximum conditional likelihood estimation을 쓴다.
-- training set ${(z_i,y_i)}$에 대한 log-likelihood는 다음과 같다. 
-  L(W,b) = $\sum_i logp(y|z;W,b)$
+- training set $${(z_i,y_i)}$$에 대한 log-likelihood는 다음과 같다. 
+  L(W,b) = $$\sum_i logp(y|z;W,b)$$
 - maximum likelihood training은 L(W,b)가 최대가 되는 parameter들을 선택한다.
-- decoding은 가장 높은 conditional probability로 label sequence y\*을 찾는 것이다.
-  y\* = $argmax_{y\in y(z)} p(y|z; W,b)$
+- decoding은 가장 높은 conditional probability로 label sequence y*을 찾는 것이다.
+  y* = $$argmax_{y\in y(z)} p(y|z; W,b)$$
 - CRF model은 두 개의 연속적인 label들 간의 interaction만 고려한다.
 - Viterbi 알고리즘을 사용해서 효율적으로 decoding한다. [Viterbi 알고리즘](https://ratsgo.github.io/machine%20learning/2017/11/10/CRF/)
 
@@ -79,20 +79,20 @@ categories: 2016 LSTM CNN CRF sequence-labeling
 ### 3.1. Parameter Initialization
 **Word Embeddings**
 - 각각 다른 set으로 GloVe 100-dim embeddings, Senna 50-dim embeddings, Word2Vec 300-dim을 사용했다. (pre-trained embedding을 사용했다는 뜻인 듯)
-- pretrained word embeddings의 효과를 검증하기 위해 random하게 초기화된 100-dim embeddings도 사용했다. (uniformly sampled from range [$-\sqrt\frac{3}{dim},+\sqrt\frac{3}{dim}$])
+- pretrained word embeddings의 효과를 검증하기 위해 random하게 초기화된 100-dim embeddings도 사용했다. (uniformly sampled from range $$[-\sqrt\frac{3}{dim},+\sqrt\frac{3}{dim}])$$
 
 **Character Embeddings**
-- uniformly sampled from range [$-\sqrt\frac{3}{dim},+\sqrt\frac{3}{dim}$]
+- uniformly sampled from range $$[-\sqrt\frac{3}{dim},+\sqrt\frac{3}{dim}]$$
 - dim은 30으로 설정했다.
 
 **Weight Matrices and Bias Vectors**
-- matrix parameter들은 [$-\sqrt\frac{6}{r+c},+\sqrt\frac{6}{r+c}$]에서 uniform sample로 random하게 초기화됐다.(r과 c는 행과 열의 개수)
-- LSTM의 forget gate의 bias $b_f$만 1.0으로 초기화 하고, 나머지 bias vector들은 0으로 초기화했다.
+- matrix parameter들은 $$[-\sqrt\frac{6}{r+c},+\sqrt\frac{6}{r+c}]$$에서 uniform sample로 random하게 초기화됐다.(r과 c는 행과 열의 개수)
+- LSTM의 forget gate의 bias $$b_f$$만 1.0으로 초기화 하고, 나머지 bias vector들은 0으로 초기화했다.
 
 ## 3.2. Optimization Algorithm
 - batch size 10에 momentum 0.9로 mini batch SGD를 사용했다.
 - 초기 학습율은 POS tagging은 0.01, NER은 0.015로 했다.
-- training의 각 epoch당 lr = lr/(1+$p_t$)로 학습율을 업데이트 했다. (decay rate p=0.05, t는 epoch 수)
+- training의 각 epoch당 lr = lr/(1+$$p_t$$)로 학습율을 업데이트 했다. (decay rate p=0.05, t는 epoch 수)
 - gradient exploding 효과를 줄이기 위해 gradient clipping을 사용했다.
 - 다른 최적화 알고리즘도 써봤는데 SGD with momentum과 gradient clipping보다 좋은 게 없었다.
 
@@ -139,5 +139,4 @@ categories: 2016 LSTM CNN CRF sequence-labeling
 - 우리의 model은 multi-task learning 접근법을 통해 더 발전될 수 있을 것이다. 
 
 <script id="dsq-count-scr" src="//nlp-with-koding.disqus.com/count.js" async></script>
-
 <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
