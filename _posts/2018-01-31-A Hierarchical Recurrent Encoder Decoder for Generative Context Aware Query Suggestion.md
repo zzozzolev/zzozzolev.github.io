@@ -146,4 +146,5 @@ $$\mathcal{Q}$$는 가능한 쿼리 공간<p>
 - [Query Variable Markov Model (QVMM)](https://stackoverflow.com/questions/26037351/n-gram-character-based-similarity-measure)
 
 <script id="dsq-count-scr" src="//nlp-with-koding.disqus.com/count.js" async></script>
+
 <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
