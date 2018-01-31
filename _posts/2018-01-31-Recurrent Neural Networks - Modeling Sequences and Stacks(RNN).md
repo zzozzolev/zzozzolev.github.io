@@ -1,5 +1,9 @@
-YBIGTA 10기 노혜미, 박승리
-
+---
+comments: true
+title: "Recurrent Neural Networks - Modeling Sequences and Stacks(RNN)"
+date: 2017-08-02 
+categories: 2015 RNN
+---
 # Recurrent Neural Networks - Modeling Sequences and Stacks(RNN)
 
 - RNN은 임의적인 크기를 가지도록 구조화된 input들을 고정된 크기의 vector로 표현할 수 있게 해준다. 
