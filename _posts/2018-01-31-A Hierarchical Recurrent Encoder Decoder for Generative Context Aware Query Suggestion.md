@@ -1,6 +1,6 @@
 ---
 comments: true
-title: "A Hierarchical Recurrent Encoder Decoder for Generative Context Aware Query Suggestion"
+title: "A Hierarchical Recurrent Encoder Decoder for Generative Context Aware Query Suggestion Review"
 date: 2018-01-31 20:56
 categories: 2015 RNN encoder-decoder generative-model 
 ---
