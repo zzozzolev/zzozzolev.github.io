@@ -9,12 +9,10 @@ categories: 2017 word-tensor
 - tensor가 문서 z내에서 단어 x와 단어 y의 관련성을 나타낸다면 doc2vec과 비슷할 것이다. 그래서 word vector뿐만 아니라 document vector또한 얻을 수 있다.
 
 
-##### 본격적으로 하기 전에 알아둘 개념
+### 본격적으로 하기 전에 알아둘 개념
 
-- Point-wise MatuaI Information: 두 점 x, y사이의 상관도를 수치화 하는 기법. $i(x, y) = log\frac{P(x,y)}{P(x)P(y)}$이다. 두 변수 사이의 연관도가 높으면 P(x, y)는 P(x)P(y)에 비해 높다. 그리고 그 결과로 $i(x,y)$는  0보다 커진다. 만약 연관도가 낮다면, 두 변수가 동시에 일어날 확률을 독립이므로 P(x,y)$\approx$P(x)P(y)이다. 따라서 i(x,y)$\approx$0이다.  만약 상호 보완적인 관계이면 P(x, y)는 P(x)P(y)에 비해 작은 값을 갖게 될 것이다. [참고 자료](https://www.slideshare.net/RetrieverJo/pmi-twitter-57723391)
+- Point-wise MatuaI Information: 두 점 x, y사이의 상관도를 수치화 하는 기법. $$i(x, y) = log\frac{P(x,y)}{P(x)P(y)}$$이다. 두 변수 사이의 연관도가 높으면 P(x, y)는 P(x)P(y)에 비해 높다. 그리고 그 결과로 $$i(x,y)$$는  0보다 커진다. 만약 연관도가 낮다면, 두 변수가 동시에 일어날 확률을 독립이므로 P(x,y)$$\approx$$P(x)P(y)이다. 따라서 i(x,y)$$\approx$$0이다.  만약 상호 보완적인 관계이면 P(x, y)는 P(x)P(y)에 비해 작은 값을 갖게 될 것이다. [참고 자료](https://www.slideshare.net/RetrieverJo/pmi-twitter-57723391)
 - PMI Matrix: 각각의 row는 word x를 나타내고 각각의 column은 word y를 나타내는 matrix이다. 각각의 값은 PMI이다. matrix size는 (n_vocabulary, n_vocabulary)이다. 그래서 sparse해질 수 있기 때문에 sparse array data structure를 쓰는 게 좋다.
-
-
 
 - tensor factorization은 다음과 같다.
 
@@ -30,8 +28,6 @@ $$
 ![Tensor](http://multithreaded.stitchfix.com/assets/posts/2017-10-25-word-tensors/tensor_01.gif)
 
 
-
-(그림 그려준 건 좋은데 너무 빨리 넘겨서 슬프다ㅠㅠ)
 
 - 3D tensor를 3개의 2D mode로 쪼갤 수 있다.  하나는 word index x를 위한 거고 다른 하나는 word index y를, 마지막으로 document index z를 위한 것이다. 위의 그림에서 앞면이 word x를 위한 matrix이고 윗면이 word y를 위한 matrix이고 옆면이 document를 위한 matrix인 것 같다.
 
