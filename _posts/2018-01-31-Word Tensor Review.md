@@ -1,7 +1,7 @@
 ---
 comments: true
 title: "Word Tensor Review"
-date: 2018-11-03
+date: 2017-11-03
 categories: 2017 word-tensor
 ---
 ## Word Tensor
