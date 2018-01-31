@@ -1,5 +1,9 @@
-# Lecture 3 | GloVe: Global Vectors for Word Representation   
-
+---
+comments: true
+title: "[Stanford NLP] Lecture 3 GloVe-Global Vectors for Word Representation"
+date: 2017-08-22 
+categories: 2017 stanford-nlp GloVe word-representation 
+---
 강의 출처:
 
 https://www.youtube.com/watch?v=ASn7ExxLZws&t=752s&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6&index=3
@@ -227,3 +231,6 @@ https://www.youtube.com/watch?v=ASn7ExxLZws&t=752s&list=PL3FW7Lu3i5Jsnh1rnUwq_Tc
 - https://www.youtube.com/watch?v=ASn7ExxLZws&t=752s&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6&index=3
 - https://datascienceschool.net/view-notebook/a0c848e1e2d343d685e6077c35c4203b/
 - http://rfriend.tistory.com/185
+
+<script id="dsq-count-scr" src="//nlp-with-koding.disqus.com/count.js" async></script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
