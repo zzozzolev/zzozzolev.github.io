@@ -4,8 +4,8 @@ title: "A Hierarchical Recurrent Encoder Decoder for Generative Context Aware Qu
 date: 2018-01-31 20:56
 categories: 2015 RNN encoder-decoder generative-model 
 ---
-# Abstract<p>
-임의의 길이를 갖는 이전 쿼리 sequence를 고려할 수 있는 확률적 suggestion 모델이다. 즉, 맥락을 알아내 generation하는 모델이다. 각각의 encoder와 decoder에 GRU를 이용했고 LTR 알고리즘을 사용했다. HRED를 사용하니 빈번하지 않은 context에 대해서도 잘 예측할 수 있었다.
+# Abstract
+- 임의의 길이를 갖는 이전 쿼리 sequence를 고려할 수 있는 확률적 suggestion 모델이다. 즉, 맥락을 알아내 generation하는 모델이다. 각각의 encoder와 decoder에 GRU를 이용했고 LTR 알고리즘을 사용했다. HRED를 사용하니 빈번하지 않은 context에 대해서도 잘 예측할 수 있었다.
 
 
 # 1. Introduction
@@ -83,8 +83,8 @@ $$H_o$$와 $$E_o$$은 parameter, 만약 $$o_v$$가 vector $$\omega(d_{m,n-1},w_{
 
 ## 3.4 Generation and Rescoring
 **Generation**<p>
-- 유저가 쿼리를 순서대로 입력하면, 쿼리 suggestion은 쿼리 $$Q\*$$이다.<p>
-$$Q\*=argmax_{Q\in \mathcal{Q}}P(Q|Q_{1:M}$$<p>
+- 유저가 쿼리를 순서대로 입력하면, 쿼리 suggestion은 쿼리 $$Q*$$이다.<p>
+$$Q*=argmax_{Q\in \mathcal{Q}}P(Q|Q_{1:M}$$<p>
 $$\mathcal{Q}$$는 가능한 쿼리 공간<p>
 *Example*<p>
 ![Imgur](https://i.imgur.com/VMSD3OD.png)<p>
