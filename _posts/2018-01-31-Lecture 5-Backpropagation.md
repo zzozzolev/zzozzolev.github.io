@@ -2,7 +2,7 @@
 comments: true
 title: "[Stanford NLP] Lecture 5-Backpropagation"
 date: 2017-09-04 
-categories: 2017 stanford-nlp GloVe word-representation 
+categories: 2017 stanford-nlp backprop
 ---
 강의 출처:
 
