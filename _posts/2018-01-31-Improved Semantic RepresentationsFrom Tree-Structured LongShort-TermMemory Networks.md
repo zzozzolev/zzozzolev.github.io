@@ -8,7 +8,7 @@ categories: 2015 Tree-LSTM
 
 ### 1.1 Overview
 
-#### 1.1.1 LSTM
+### 1.1.1 LSTM
 
 - LSTM은 $$R^d$$ vector들의 collection이다. 여기서 d는 LSTM의 memory dimension이다. 
 - input gate, forget gate, output gate, memory cell, hidden state가 있다.
@@ -23,7 +23,7 @@ categories: 2015 Tree-LSTM
 
 - output gate는 내부 memory state를 얼마만큼 이용할 건지를 결정한다.
 
-#### 1.1.2 Dependency vs. constituency
+### 1.1.2 Dependency vs. constituency
 
   ![Imgur](https://i.imgur.com/ArbjJng.png)
 
