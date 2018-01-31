@@ -1,5 +1,9 @@
-# Lecture 5: Backpropagation
-
+---
+comments: true
+title: "[Stanford NLP] Lecture 5-Backpropagation"
+date: 2017-09-04 
+categories: 2017 stanford-nlp GloVe word-representation 
+---
 강의 출처:
 
 https://www.youtube.com/watch?v=isPiE-DBagM&t=2043s&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6&index=5
@@ -160,3 +164,6 @@ https://www.youtube.com/watch?v=isPiE-DBagM&t=2043s&list=PL3FW7Lu3i5Jsnh1rnUwq_T
 ![Imgur](https://i.imgur.com/ex8yHNS.png)
 
 - 이제 $W(1)$에 대한 마지막 gradient를 계산할 수 있게 되었다.
+
+<script id="dsq-count-scr" src="//nlp-with-koding.disqus.com/count.js" async></script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
