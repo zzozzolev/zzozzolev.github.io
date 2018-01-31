@@ -2,7 +2,7 @@
 comments: true
 title: "[Stanford NLP] Lecture 6-Dependency Parsing"
 date: 2017-09-23 
-categories: 2017 stanford-nlp GloVe word-representation 
+categories: 2017 stanford-nlp parsing
 ---
 강의 출처: https://www.youtube.com/watch?v=PVShkZgXznc&index=6&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6
 
