@@ -53,7 +53,7 @@ categories: 2015 RNN encoder-decoder generative-model
 - backward에서는 gradients가 계산되고, parameter들이 업데이트된다.
 
 ### 3.2.1 Query-Level Encoding
-- training session S에 있는 각각의 쿼리 $$Q_m = {w_{m,1},...,w_{m,N_m}}($$m$$은 쿼리의 순서, $$N_m$$은 쿼리의 길이)에 대해 query-level RNN은 쿼리의 단어를 순차적으로 읽고 hidden state를 GRU를 이용해 업데이트 한다.
+- training session S에 있는 각각의 쿼리 $$Q_m = {w_{m,1},...,w_{m,N_m}}$$($$m$$은 쿼리의 순서, $$N_m$$은 쿼리의 길이)에 대해 query-level RNN은 쿼리의 단어를 순차적으로 읽고 hidden state를 GRU를 이용해 업데이트 한다.
 - 요약하자면, query-level RNN encoder는 쿼리를 고정된 길이의 벡터로 mapping한다.
 - parameter들은 공유되므로 recurrent state는 쿼리에 대해 general하고 contextual한 representation을 갖게 된다.
 
@@ -69,14 +69,16 @@ categories: 2015 RNN encoder-decoder generative-model
 $$P(Q_m|Q_{1:m-1})=\prod^{N_m}_{n=1}P(w_n|w_{1:n-1},Q_{1:m-1})$$
 
 - 이전 쿼리에 대한 조건화는 RNN decoder의 recurrence를, $$s_{m-1}$$의 non-linear transformation을 통해 초기화함으로써 이루어진다.
+
 $$d_{m,0}=tanh(D_{0S_{m-1}}+b_0)$$
+
 *$$d_{m,0}$$은 decoder의 초기 recurrent state
 
 - recurrence는 다음과 같은 form을 갖는다.
+
 $$d_{m,n}=GRU_{dec}(d_{m,n-1},w_{m,n}), n=1,...,N_m$$
 
-$$GRU_{dec}$$는 decoder GRU, recurrent state $$d_{m,n-1}$$는 다음 단어 $$w_{m,n}$$의 확률을 계산하는데 사용된다.
-
+- $$GRU_{dec}$$는 decoder GRU, recurrent state $$d_{m,n-1}$$는 다음 단어 $$w_{m,n}$$의 확률을 계산하는데 사용된다.
 - 다음 단어 $$w_{m,n}$$에 대한 확률은 다음의 식으로 계산된다.
  
 ![Imgur](https://i.imgur.com/MtCWJou.png)
