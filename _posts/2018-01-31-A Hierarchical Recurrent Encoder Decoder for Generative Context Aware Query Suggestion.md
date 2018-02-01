@@ -70,7 +70,6 @@ $$P(Q_m|Q_{1:m-1})=\prod^{N_m}_{n=1}P(w_n|w_{1:n-1},Q_{1:m-1})$$
 
 - 이전 쿼리에 대한 조건화는 RNN decoder의 recurrence를, $$s_{m-1}$$의 non-linear transformation을 통해 초기화함으로써 이루어진다.
 $$d_{m,0}=tanh(D_{0S_{m-1}}+b_0)$$
-
 *$$d_{m,0}$$은 decoder의 초기 recurrent state
 
 - recurrence는 다음과 같은 form을 갖는다.
@@ -154,10 +153,8 @@ $$\mathcal{Q}$$는 가능한 쿼리 공간
 - suggestion과 context내에서 각각의 쿼리 사이의 평균 Levenshtein 거리도 더했다.
 - Query Variable Markov Model (QVMM)을 추가적인 feature로 사용해서 추정된 score를 사용했다.
 *character n-gram similarity는 두 문자열 사이의 유사도를 n-gram을 이용해 알아내는 방법이다. 
-
 *bi-gram일때, 
 $$similarity(korea, korean) = \frac{2X|\{ko,or,re,ea\}|}{|\{ko,or,re,ea\}|+|\{ko,or,re,ea,an\}|}=\frac{2X4}{4+5}\approx 0.89$$
-
 *markov model은 stochastic한 모델이다. 미래의 상태는 이전에 발생한 사건이 아니라 오직 현재의 상태에만 의존한다고 가정한다.
 
 **HRED Score**
