@@ -10,7 +10,7 @@ categories: 2015 RNN encoder-decoder generative-model
 
 # 1. Introduction
 - generative한 통계 모델을 제시했다.
-- 많이 발생한 쿼리뿐만 아니라 training data에서 보지 못한 쿼리 역시 synthetic하고 맥락을 아는 모델이다. 
+- 빈도수가 많은 쿼리뿐만 아니라 빈도수가 적은 쿼리 역시 synthetic하게 suggestion을 만들어내는 맥락을 아는 모델이다. 
 - 주어진 순차적인 쿼리를 prefix로 가정하고, prefix 다음에 올 가장 확률이 높은 순차적인 단어를 예측한다.
 - 쿼리 suggestions은 주어진 하나 이상의 쿼리에 대해 가능성 있는 연속적인 단어를 샘플링해서 얻어낼 수 있다.
 - 예를 들어, 유저 쿼리 세션이 cleveland grallery -> lake erie art와 같이 두 가지 쿼리로 이루어져 있다면, 모델은 순서대로 cleveland, indian, art, $$\circ$$을 예측한다. ($$\circ$$은 end-of-query symbol)
