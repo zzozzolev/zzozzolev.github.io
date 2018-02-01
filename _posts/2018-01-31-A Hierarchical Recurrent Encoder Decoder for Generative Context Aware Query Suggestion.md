@@ -83,11 +83,11 @@ $$d_{m,n}=GRU_{dec}(d_{m,n-1},w_{m,n}), n=1,...,N_m$$
  
 ![Imgur](https://i.imgur.com/MtCWJou.png)
 
-$$o_v$$는 v의 embedding, $$\omega$$는 함수이다.
+- $$o_v$$는 v의 embedding, $$\omega$$는 함수이다.
 
 $$\omega(d_{m,n-1},w_{m,n-1})=H_o d_{m,n-1}+E_o w_{m,n-1}+b_0$$
 
-$$H_o$$와 $$E_o$$은 parameter, 만약 $$o_v$$가 vector $$\omega(d_{m,n-1},w_{m,n-1})$$과 가까이 있다면 모델 내에서 $$w_{m,n}$$은 높은 확률을 갖는다.
+- $$H_o$$와 $$E_o$$은 parameter, 만약 $$o_v$$가 vector $$\omega(d_{m,n-1},w_{m,n-1})$$과 가까이 있다면 모델 내에서 $$w_{m,n}$$은 높은 확률을 갖는다.
 
 ## 3.3 Learning
 - model의 parameter들은 encoder GRU, decoder GRU, session GRU 3개의 GRU의 parameter들로 구성되어있다.
@@ -155,8 +155,11 @@ $$\mathcal{Q}$$는 가능한 쿼리 공간
 - suggestion과 context내에서 각각의 쿼리 사이의 평균 Levenshtein 거리도 더했다.
 - Query Variable Markov Model (QVMM)을 추가적인 feature로 사용해서 추정된 score를 사용했다.
 *character n-gram similarity는 두 문자열 사이의 유사도를 n-gram을 이용해 알아내는 방법이다. 
+
 *bi-gram일때, 
+
 $$similarity(korea, korean) = \frac{2X|\{ko,or,re,ea\}|}{|\{ko,or,re,ea\}|+|\{ko,or,re,ea,an\}|}=\frac{2X4}{4+5}\approx 0.89$$
+
 *markov model은 stochastic한 모델이다. 미래의 상태는 이전에 발생한 사건이 아니라 오직 현재의 상태에만 의존한다고 가정한다.
 
 **HRED Score**
