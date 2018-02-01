@@ -13,16 +13,16 @@ categories: 2015 RNN encoder-decoder generative-model
 - 빈도수가 많은 쿼리뿐만 아니라 빈도수가 적은 쿼리 역시 synthetic하게 suggestion을 만들어내는 맥락을 아는 모델이다. 
 - 주어진 순차적인 쿼리를 prefix로 가정하고, prefix 다음에 올 가장 확률이 높은 순차적인 단어를 예측한다.
 - 쿼리 suggestions은 주어진 하나 이상의 쿼리에 대해 가능성 있는 연속적인 단어를 샘플링해서 얻어낼 수 있다.
-- 예를 들어, 유저 쿼리 세션이 cleveland grallery -> lake erie art와 같이 두 가지 쿼리로 이루어져 있다면, 모델은 순서대로 cleveland, indian, art, $$\circ$$을 예측한다. ($$\circ$$은 end-of-query symbol)
-- suggestion은 첫번째 쿼리로 봤을 때 cleveland의 concept이 적절하기 때문에 contextual하다. 그래서 모델은 단지 최근의 쿼리에만 의존하지 않는다. 그리고 만들어진 쿼리는 training set에 있을 필요가 없기 때문에 synthetic하다.
+- 예를 들어, 유저 쿼리 세션이 cleveland gallery -> lake erie art와 같이 두 가지 쿼리로 이루어져 있다면, 모델은 순서대로 cleveland, indian, art, $$\circ$$을 예측한다. ($$\circ$$은 end-of-query symbol)
+- suggestion은 첫번째 유저 쿼리로 봤을 때 cleveland의 concept이 적절하기 때문에 contextual하다. 그래서 모델은 단지 최근의 쿼리에만 의존하지 않는다. 그리고 만들어진 쿼리는 training set에 있을 필요가 없기 때문에 synthetic하다.
 - count-based 모델과 달리 하나의 단어들, 쿼리, 순차적인 쿼리를 임베딩에 할당해 data sparsity를 피했다.
-- 우리 모델은 메모리를 많이 차지하지 않고 쿼리 세션에서 end-to-end 학습될 수 있다.
+- 우리 모델은 메모리를 많이 차지하지 않고 쿼리 세션에서 end-to-end로 학습될 수 있다.
 
 
 # 2. Key Idea
 - suggestion 모델은 쿼리 사이의 근본적인 유사도를 알아내야 한다.
 - 해당 논문에서는 문법적인이고 의미적인 특성을 인코딩하는 임베딩을 이용해서 어떻게 쿼리의 유사도와 쿼리 term의 유사도를 알아내는지에 초점을 맞췄다.
-- 모델로 학습시킨 임베딩의 벡터들은 유사한 주제일 수록 가까이에 있다.
+- 모델로 학습시킨 임베딩의 벡터들은 유사한 주제일 수록 가까이에 있었다.
 - 일반적으로 구절에 대한 벡터 표현은 단어들의 벡터를 평균내서 얻지만, 쿼리에서 단어의 순서는 중요하기 때문에 RNN을 이용했다.
 - RNN을 이용한 인코딩과 디코딩은 이전 쿼리에 대해 다음 쿼리를 예측하는데 쓰일 수 있다.
 
@@ -53,7 +53,7 @@ categories: 2015 RNN encoder-decoder generative-model
 - backward에서는 gradients가 계산되고, parameter들이 업데이트된다.
 
 ### 3.2.1 Query-Level Encoding
-- training session S에 있는 각각의 쿼리 $$Q_m = {w_{m,1},...,w_{m,N_m}}$$($$m$$은 쿼리의 순서, $$N_m은 쿼리의 길이$$)에 대해 query-level RNN은 쿼리의 단어를 순차적으로 읽고 hidden state를 GRU를 이용해 업데이트 한다.
+- training session S에 있는 각각의 쿼리 $$Q_m = {w_{m,1},...,w_{m,N_m}}($$m$$은 쿼리의 순서, $$N_m$$은 쿼리의 길이)에 대해 query-level RNN은 쿼리의 단어를 순차적으로 읽고 hidden state를 GRU를 이용해 업데이트 한다.
 - 요약하자면, query-level RNN encoder는 쿼리를 고정된 길이의 벡터로 mapping한다.
 - parameter들은 공유되므로 recurrent state는 쿼리에 대해 general하고 contextual한 representation을 갖게 된다.
 
@@ -65,21 +65,28 @@ categories: 2015 RNN encoder-decoder generative-model
 - 게다가 query vector를 인풋으로 받기 때문에 쿼리 내에 있는 단어의 순서에도 민감하다.
 
 ### 3.2.3 Next-Query Decoding
-- RNN decoder는 $$Q_{1:m-1}$$이 주어졌을 때 다음 쿼리$$Q_m$$을 예측한다.<p>
+- RNN decoder는 $$Q_{1:m-1}$$이 주어졌을 때 다음 쿼리$$Q_m$$을 예측한다.
 $$P(Q_m|Q_{1:m-1})=\prod^{N_m}_{n=1}P(w_n|w_{1:n-1},Q_{1:m-1})$$
-- 이전 쿼리에 대한 조건화는 RNN decoder의 recurrence를, $$s_{m-1}$$의 non-linear transformation을 통해 초기화함으로써 이루어진다.<p>
-$$d_{m,0}=tanh(D_{0S_{m-1}}+b_0)$$<p>
-$$d_{m,0}$$은 decoder의 초기 recurrent state<p>
-- recurrence는 다음과 같은 form을 갖는다.<p>
-$$d_{m,n}=GRU_{dec}(d_{m,n-1},w_{m,n}), n=1,...,N_m$$<p>
+
+- 이전 쿼리에 대한 조건화는 RNN decoder의 recurrence를, $$s_{m-1}$$의 non-linear transformation을 통해 초기화함으로써 이루어진다.
+$$d_{m,0}=tanh(D_{0S_{m-1}}+b_0)$$
+
+*$$d_{m,0}$$은 decoder의 초기 recurrent state
+
+- recurrence는 다음과 같은 form을 갖는다.
+$$d_{m,n}=GRU_{dec}(d_{m,n-1},w_{m,n}), n=1,...,N_m$$
+
 $$GRU_{dec}$$는 decoder GRU, recurrent state $$d_{m,n-1}$$는 다음 단어 $$w_{m,n}$$의 확률을 계산하는데 사용된다.
+
 - 다음 단어 $$w_{m,n}$$에 대한 확률은 다음의 식으로 계산된다.
  
 ![Imgur](https://i.imgur.com/MtCWJou.png)
 
 $$o_v$$는 v의 embedding, $$\omega$$는 함수이다.
+
 $$\omega(d_{m,n-1},w_{m,n-1})=H_o d_{m,n-1}+E_o w_{m,n-1}+b_0$$
-$$H_o$$와 $$E_o$$은 parameter, 만약 $$o_v$$가 vector $$\omega(d_{m,n-1},w_{m,n-1})$$과 가까이 있다면 모델 내에서 $$w_{m,n}은 높은 확률을 갖는다.$$
+
+$$H_o$$와 $$E_o$$은 parameter, 만약 $$o_v$$가 vector $$\omega(d_{m,n-1},w_{m,n-1})$$과 가까이 있다면 모델 내에서 $$w_{m,n}$$은 높은 확률을 갖는다.
 
 ## 3.3 Learning
 - model의 parameter들은 encoder GRU, decoder GRU, session GRU 3개의 GRU의 parameter들로 구성되어있다.
@@ -91,29 +98,30 @@ $$H_o$$와 $$E_o$$은 parameter, 만약 $$o_v$$가 vector $$\omega(d_{m,n-1},w_{
 ## 3.4 Generation and Rescoring
 **Generation**
 - 유저가 쿼리를 순서대로 입력하면, 쿼리 suggestion은 쿼리 $$Q*$$이다.
-$$Q*=argmax_{Q\in \mathcal{Q}}P(Q|Q_{1:M}$$
+$$Q*=argmax_{Q\in \mathcal{Q}}P(Q|Q_{1:M})$$
 $$\mathcal{Q}$$는 가능한 쿼리 공간
-*Example*
 
 ![Imgur](https://i.imgur.com/VMSD3OD.png)
+
+*Example*
 
 - 유저가 cleveland gallery -> lake erie artist라는 쿼리를 입력했다고 해보자.
 - 쿼리 내에 있는 단어들은 GRU를 통해 query-level encoding이 된다. 따라서 쿼리 vector인 $$q_{cleveland gallery}$$와 $$q_{lake erie art}$$를 얻게 된다.
 - 그 다음, 쿼리 벡터에 GRU를 이용해 session-level recurrent state를 계산한다. 이를 통해, 두 개의 session-level recurrent state인 $$s_{cleveland gallery}$$와 $$s_{lake erie art}$$를 얻는다.
-- 마지막 session-level recurrent state를 초기 decoder input으로 넣는다.(tanh 이용)
+- session-level recurrent state를 초기 decoder input으로 넣는다.(tanh 이용)
 - beam search 크기가 1이라고 가정하자.
-- 첫번째 단어인 $$w_1$$이 나올 확률은 softmax를 이용해서 계산되는데, 이때 $$d_0$$와 $$w_0$$는 null vector이다. (논문에서 언급은 안했지만 b_0는 1로 초기화해서 $$O_v$$를 거의 그대로 유지하는 것 같다.) 
+- 첫번째 단어인 $$w_1$$이 나올 확률은 softmax를 이용해서 계산되는데, 이때 $$d_0$$와 $$w_0$$는 null vector이다. (논문에서 언급은 안했지만 b_0는 1로 초기화해서 $$o_v$$를 거의 그대로 유지하는 것 같다.) 
 - 가장 높은 확률을 가진 단어인 cleveland는 beam에 추가된다.
 - 그 다음 decoder recurrent state인 $$d_1$$은 $$d_0$$와 $$w_1=cleveland$$를 이용해 decoder GRU에 의해 계산된다.
 - $$d_1$$을 이용해 가장 가능성 있는 두번째 단어로 $$w_2=indian$$를 고를 수 있다.
 - 과정은 반복되고 모델은 art를 고르고 $$\circ$$를 고를 것이다.
-- $$\circ$$ 즉, end-of-query symbol이 나오게 되면 user에게 *cleveland*을 유저에게 보여주게 된다.
+- $$\circ$$ 즉, end-of-query symbol이 나오게 되면 user에게 *cleveland indian art*을 유저에게 보여주게 된다.
  
 
 # 4. Experiments
 
 ## 4.1 Dataset
-- search log from AOL: 2006년 3월 1일 부터 5월 31일까지의 dataset. 657,426의 개별 유저들에게서 입력된 16,946,938 개의 쿼리들. 
+- search log from AOL: 2006년 3월 1일 부터 5월 31일까지의 dataset. 657,426명의 개별 유저들에게서 입력된 16,946,938 개의 쿼리들. 
 - background data: 2006년 3월 1일부터 5월 1일 이전까지의 쿼리. 모델과 baseline들을 평가하기 위해 만들었다.
 - training set: background data의 다음 두 주의 쿼리. ranking model을 튜닝하기 위해 만들었다.
 - validation set, test set: 나머지 두 주의 쿼리. 
@@ -132,23 +140,25 @@ $$\mathcal{Q}$$는 가능한 쿼리 공간
 - 첫번째는 context 쿼리가 background data에 있을때, 두번째는 context 쿼리가 흔한 쿼리들과 매우 유사할 때, 세번째는 background data에 없을 때이다.
 - 각각의 상황에서 20개의 후보를 골랐고, 후보한테는 true target labeling을 하고 나머지는 모두 관련없는 것으로 labeling을 했다.
 - (2015년 당시)최신 랭킹 알고리즘인 LambdaMART를 supervised 랭커로 선택했다.
+*LambdaMART는 Learning to Rank 알고리즘 중 하나이다. 아이템 리스트에서 랭킹 문제를 해결하는 알고리즘이다. 
 
 **Pairwise and Suggestion Features**
 - 각각의 후보 suggestion에 대해, 얼마나 많이 context 쿼리 뒤에 왔나를 셌다. 그리고 이 카운트를 feature로 더했다.
 - context 쿼리의 빈도도 사용했다.
 - 또한 context와 suggestion 사이의 Levenshtein 거리도 feature에 더했다.
 - suggestion feature는 suggestion의 길이와 background set에서의 빈도도 포함한다.
-- LambdaMART는 Learning to Rank 알고리즘 중 하나이다. 아이템 리스트에서 랭킹 문제를 해결하는 알고리즘이다. 
-- Levenshtein 거리는 두 문자열 간의 유사도의 측정 기준이 되는 거리이다. 원래 문자열 s와 타겟 문자열 t와의 거리는 s를 t로 바꾸는 데 필요한 삭제, 삽입, 대치의 횟수이다. ex) s="test", t="tent" => LD(s,t) = 1
+*Levenshtein 거리는 두 문자열 간의 유사도의 측정 기준이 되는 거리이다. 원래 문자열 s와 타겟 문자열 t와의 거리는 s를 t로 바꾸는 데 필요한 삭제, 삽입, 대치의 횟수이다. ex) s="test", t="tent" => LD(s,t) = 1
 
 **Contextual Features**
 - suggestion과 context에서 가장 최근의 10개의 쿼리 사이의 character n-gram 유사도에 해당하는 10가지 feature를 더했다.(쿼리 하나당 1개씩 더한 듯)
 - suggestion과 context내에서 각각의 쿼리 사이의 평균 Levenshtein 거리도 더했다.
 - Query Variable Markov Model (QVMM)을 추가적인 feature로 사용해서 추정된 score를 사용했다.
-- character n-gram similarity는 두 문자열 사이의 유사도를 n-gram을 이용해 알아내는 방법이다. 
-- bi-gram일때, 
+*character n-gram similarity는 두 문자열 사이의 유사도를 n-gram을 이용해 알아내는 방법이다. 
+
+*bi-gram일때, 
 $$similarity(korea, korean) = \frac{2X|\{ko,or,re,ea\}|}{|\{ko,or,re,ea\}|+|\{ko,or,re,ea,an\}|}=\frac{2X4}{4+5}\approx 0.89$$
-- markov model은 stochastic한 모델이다. 미래의 상태는 이전에 발생한 사건이 아니라 오직 현재의 상태에만 의존한다고 가정한다.
+
+*markov model은 stochastic한 모델이다. 미래의 상태는 이전에 발생한 사건이 아니라 오직 현재의 상태에만 의존한다고 가정한다.
 
 **HRED Score**
 - 주어진 context에 대해서 suggestion의 log-likelihood에 해당하는 추가적인 feature를 추가하는데 사용됐다.
