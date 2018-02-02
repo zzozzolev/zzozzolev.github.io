@@ -178,3 +178,13 @@ $$similarity(korea, korean) = \frac{2X|\{ko,or,re,ea\}|}{|\{ko,or,re,ea\}|+|\{ko
 <script id="dsq-count-scr" src="//nlp-with-koding.disqus.com/count.js" async></script>
 
 <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113467528-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113467528-1');
+</script>
