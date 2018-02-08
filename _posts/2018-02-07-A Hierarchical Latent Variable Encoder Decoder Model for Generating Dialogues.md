@@ -71,7 +71,8 @@ categories: 2016 RNN encoder-decoder generative-model
 
 ![Imgur](https://i.imgur.com/rzhGYts.png)
 
-- $$Q_\psi(z\|w_1,...,w_M)$$은 사후 추정 분포(approximate posterior distribution)이다. 거의 변동인 없는 진짜 사후 분포를 추정하는 것을 목표로 한다.
+- KL은 [쿨백-라이블러 발산](https://ratsgo.github.io/statistics/2017/09/22/information/)으로 두 확률 분포의 차이를 계산하기 위한 함수이다.
+- $$Q_\psi(z\|w_1,...,w_M)$$은 추정 사후 분포(approximate posterior distribution)이다. 거의 변동인 없는 진짜 사후 분포를 추정하는 것을 목표로 한다.
 
 ![Imgur](https://i.imgur.com/DvCEXeA.png)
 
@@ -87,7 +88,7 @@ categories: 2016 RNN encoder-decoder generative-model
 > **token 수준**에서 token들에 대한 conditional distribution  
 - variable z는 sequence에 대한 high-level 정보를 표현해 model이 오랜 시간동안 이전까지의 output을 잘 기억할 수 있도록 해준다.
 - hidden state $$h_m$$은 주로 M번째까지의 token들의 정보를 요약하는데 초점을 맞춘다.
-- 직관적으로 variable z로 randomness를 집어 넣는 것은 문장의 topic이나 sentiment같은 더 높은 수준 판단에 해당한다.
+- 직관적으로 variable z로 randomness를 집어 넣는 것은 문장의 topic이나 sentiment같은 더 높은 수준 판단을 하게 해준다.
 
 
 # 4. Experimental Evaluation
