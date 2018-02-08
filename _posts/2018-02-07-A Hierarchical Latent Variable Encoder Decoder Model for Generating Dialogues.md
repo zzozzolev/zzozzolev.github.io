@@ -16,6 +16,10 @@ categories: 2016 RNN encoder-decoder generative-model
 # 2. Technical Background
 
 ## 2.2 A Hierarchical Latent Variable Encoder-Decoder Model for Generating Dialogues
+**HRED**
+
+![Imgur](https://i.imgur.com/VMSD3OD.png)
+
 - hierarchical recurrent encoder-decoder model (HRED)는 RNN의 확장판이다.
 - encoder-decoder 구조를 대화 생성까지 확장시킨 것이다.
 - 해당 모델은 각각의 output sequence가 두 가지 level의 체계로 만들어질 수 있다고 가정한다. **즉, sequences of sub-sequences와 sub-sequences of tokens 두 가지 level로 나눠질 수 있다는 것이다.** 예를 들어, 대화는 발화들의 sequence(sub-sequence)로 만들어지고 각각의 발화는 단어들의 sequence로 만들어질 수 있다. 
