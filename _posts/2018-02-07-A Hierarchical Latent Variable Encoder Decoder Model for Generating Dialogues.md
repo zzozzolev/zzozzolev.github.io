@@ -66,12 +66,12 @@ categories: 2016 RNN encoder-decoder generative-model
 - encoder RNN은 하나의sub-sequence를 고정된 크기의 실수 벡터로 인코딩한다.
 - context RNN은 encoder RNN의 output을 input으로 받고 모든 이전의sub-sequence들을 고정된 크기의 실수 벡터로 인코딩한다.
 - 이 벡터는 tanh를 gating 함수로 가지고 두 개의 층으로된 feed-forward neural network에 feed된다.
-- 행렬곱은 feed-forward network의 output에 적용된다. 이 때 output은 multivariate normal mean $$\mu_{prior}$$을 결정한다. 비슷하게 diagonal covariance matrix $$\sum_{prior}$$에 대해서는 output에 다른 행렬곱이 적용되고 양수를 보장하기 위해 (softplus)[https://sefiks.com/2017/08/11/softplus-as-a-neural-networks-activation-function/] 함수를 거치게 된다.
+- 행렬곱은 feed-forward network의 output에 적용된다. 이 때 output은 multivariate normal mean $$\mu_{prior}$$을 결정한다. 비슷하게 diagonal covariance matrix $$\sum_{prior}$$에 대해서는 output에 다른 행렬곱이 적용되고 양수를 보장하기 위해 [softplus]([https://sefiks.com/2017/08/11/softplus-as-a-neural-networks-activation-function/) 함수를 거치게 된다.
 - 모델의 latent variable들은 variational lower-bound를 최대화하는 것을 통해 도출된다. 그리고 이때 각각의 sub-sequence에 대해 독립적인 term으로 인수분해한다.
 
 ![Imgur](https://i.imgur.com/rzhGYts.png)
 
-- $$Q_\psi(z|w_1,...,w_M)$$은 사후 추정 분포(approximate posterior distribution)이다. 거의 변동인 없는 진짜 사후 분포를 추정하는 것을 목표로 한다.
+- $$Q_\psi(z\|w_1,...,w_M)$$은 사후 추정 분포(approximate posterior distribution)이다. 거의 변동인 없는 진짜 사후 분포를 추정하는 것을 목표로 한다.
 
 ![Imgur](https://i.imgur.com/DvCEXeA.png)
 
