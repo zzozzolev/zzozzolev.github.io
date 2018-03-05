@@ -50,9 +50,10 @@ $$m_^{a/c}_{im,j}=ReLU(W^{a/c}_{im}I^{r5c/p5}_j+b^{a/c}_{im})$$
 - $${u_i}^D_{i=1}$$을 만들 때는 단순히 가장 빈번한 단어만 고려하지 않았다. TF-IDF 점수를 이용했다. 즉, 많은 유저들이 흔하게 사용하는 단어는 사용하지 않았다는 뜻이다. 이렇게 한 이유는 그런 단어들이 개인화에 도움이 되지 않기 때문이다.
 - user context memory vector $$m^{a/c}_us$$는 다음과 같다.
 
-$$u^a_j=W^a_e u_j, u^c_j = W^c_e;y_j; j \in 1,...,D 
+$$u^a_j=W^a_e u_j, u^c_j = W^c_e;y_j; j \in 1,...,D$$ 
 
-m_^{a/c}_{us,j}=ReLU(W_h[u^{a/c}_j]+b_h)$$
+
+$$m_^{a/c}_{us,j}=ReLU(W_h[u^{a/c}_j]+b_h)$$
 
 - $$u_j$$는 j번째 활성 단어에 대한 one-hot vector이다.
 - input과 output memory에 같은 $$W_h$$를 사용했지만, 별 개의 단어 임베딩 매트릭스를 사용했다.
@@ -60,9 +61,10 @@ m_^{a/c}_{us,j}=ReLU(W_h[u^{a/c}_j]+b_h)$$
 **Word Output Memory**
 - word output memory에 이전에 만들어진 일련의 단어들 $$y_1,...,y_{t-1}$$을 삽입했다. 다음과 같이 표현된다.
 
-$$o^a_j=W^a_e y_j, o^c_j = W^c_e;y_j; j \in 1,...,t-1
+$$o^a_j=W^a_e y_j, o^c_j = W^c_e;y_j; j \in 1,...,t-1$$
 
-m_^{a/c}_{ot,j}=ReLU(W_h[o^{a/c}_j]+b_h)$$
+
+$$m_^{a/c}_{ot,j}=ReLU(W_h[o^{a/c}_j]+b_h)$$
 
 - $$y_j$$는 j번째 이전 단어에 대한 one-hot vector이다.
 - 같은 word embeddings $$W^{a/c}_e$$를 사용했고 파라미터 $$W_h,b_h$$는 user context memory와 같다.
