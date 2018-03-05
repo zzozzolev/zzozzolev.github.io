@@ -51,6 +51,7 @@ $$m_^{a/c}_{im,j}=ReLU(W^{a/c}_{im}I^{r5c/p5}_j+b^{a/c}_{im})$$
 - user context memory vector $$m^{a/c}_us$$는 다음과 같다.
 
 $$u^a_j=W^a_e u_j, u^c_j = W^c_e;y_j; j \in 1,...,D$$
+
 $$m_^{a/c}_{us,j}=ReLU(W_h[u^{a/c}_j]+b_h)$$
 
 - $$u_j$$는 j번째 활성 단어에 대한 one-hot vector이다.
@@ -60,6 +61,7 @@ $$m_^{a/c}_{us,j}=ReLU(W_h[u^{a/c}_j]+b_h)$$
 - word output memory에 이전에 만들어진 일련의 단어들 $$y_1,...,y_{t-1}$$을 삽입했다. 다음과 같이 표현된다.
 
 $$o^a_j=W^a_e y_j, o^c_j = W^c_e;y_j; j \in 1,...,t-1$$
+
 $$m_^{a/c}_{ot,j}=ReLU(W_h[o^{a/c}_j]+b_h)$$
 
 - $$y_j$$는 j번째 이전 단어에 대한 one-hot vector이다.
@@ -68,7 +70,7 @@ $$m_^{a/c}_{ot,j}=ReLU(W_h[o^{a/c}_j]+b_h)$$
 
 - 최종적으로 인풋과 memory representation을 concatenate했다.
 
-$$M^{a/c}_t = [m^{a/c}_{im,1} \bigplus \cdots \bigplus m^{a/c}_{im,49} \bigplus m^{a/c}_{us,1} \bigplus \cdots \bigplus m^{a/c}_{us,D} \bigplus m^{a/c}_{ot,1} \bigplus \cdots \bigplus m^{a/c}_{ot,t-1}$$
+$$M^{a/c}_t = [m^{a/c}_{im,1} \bigoplus \cdots \bigoplus m^{a/c}_{im,49} \bigoplus m^{a/c}_{us,1} \bigoplus \cdots \bigoplus m^{a/c}_{us,D} \bigoplus m^{a/c}_{ot,1} \bigoplus \cdots \bigoplus m^{a/c}_{ot,t-1}$$
 
 - m은 메모리의 사이즈를 나타내고 세 개의 메모리 타입의 크기의 합이다.
 
@@ -89,7 +91,7 @@ $$p_t = sotfmax(M^a_tq_t), M_{Ot}(*,i)=p_t \circ M^c_t(*,i)$$
 - $$p_t$$는 현재 time step에서 input memory의 어떤 부분이 input $$q_t$$에 중요한지 나타낸단.
 - output memory representation $$M^c_t$$의 각각의 컬럼을 $$p_t$$와 element-wise 곱을 통해 rescale했다.
 - 결과적으로, attention이 적용된 output memory representation $$M_{O_t}$$를 얻어낼 수 있었다.
-- $$M_{O_t}$$는 세 가지 memory type들로 분해될 수 있다. [m^{o}_{im,1:49} \bigplus m^{a/c}_{us,1:D} \bigplus m^{a/c}_{ot,1:t-1}]
+- $$M_{O_t}$$는 세 가지 memory type들로 분해될 수 있다. [m^{o}_{im,1:49} \bigoplus m^{a/c}_{us,1:D} \bigoplus m^{a/c}_{ot,1:t-1}]
 
 **Memory CNNs**
 - 그 다음으로 $$M_{O_t}$$에 CNN을 적용했다. 확실히 CNN을 사용하면 captioning 성능을 확연히 올렸었다.
@@ -100,7 +102,7 @@ $$c^h_{im, t}=maxpool(ReLU(w^h_{im}*m^o_{im,1:49}+b^h_{im}))$$
 
 - *는 convolutional operation을 나타낸다.
 - 최종적으로 $$c^h_{im, t}$$을 h= 3~5까지 concatenate해서 $$c_{im, t}$$를 얻는다.
-- 다른 memory type에도 이와 같은 연산을 적용해 $$c_t = [c_{im,t} \bigplus c_{us,t} \bigplus c_{ot,t}]$$
+- 다른 memory type에도 이와 같은 연산을 적용해 $$c_t = [c_{im,t} \bigoplus c_{us,t} \bigoplus c_{ot,t}]$$
 
 - 다음으로 output 단어 확률 $$s_t$$를 계산한다.
 
