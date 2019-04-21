@@ -2,7 +2,9 @@
 comments: true
 title: "Concrete RNN Architectures"
 date: 2017-08-04
-categories: 2015 RNN 
+tags: 2015 RNN 
+categories:
+          - paper review
 ---
 1. Simple RNN (SRNN)
 2. Long Short-Term Memory (LSTM)

@@ -2,7 +2,9 @@
 comments: true
 title: "Sentence Classifcation"
 date: 2017-11-02
-categories: binary-classification tf-idf cosine-similarity
+tags: binary-classification tf-idf cosine-similarity
+categories: 
+           - implemenation
 ---
 ```python
 import pandas as pd

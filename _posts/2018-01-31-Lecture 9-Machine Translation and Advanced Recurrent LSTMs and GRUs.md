@@ -2,7 +2,8 @@
 comments: true
 title: "[Stanford NLP] Lecture 9-Machine Translation and Advanced Recurrent LSTMs and GRUs"
 date: 2017-10-27 
-categories: 2017 stanford-nlp machine-translation LSTM GRU
+categories: 
+           - lecture note
 ---
 *traditional machine transaction은 생략했다*
 

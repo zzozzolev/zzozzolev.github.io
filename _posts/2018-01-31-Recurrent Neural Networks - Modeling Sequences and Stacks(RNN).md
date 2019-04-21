@@ -2,7 +2,9 @@
 comments: true
 title: "Recurrent Neural Networks - Modeling Sequences and Stacks(RNN)"
 date: 2017-08-02 
-categories: 2015 RNN
+tags: 2015 RNN
+categories: 
+          - paper review
 ---
 # Recurrent Neural Networks - Modeling Sequences and Stacks(RNN)
 

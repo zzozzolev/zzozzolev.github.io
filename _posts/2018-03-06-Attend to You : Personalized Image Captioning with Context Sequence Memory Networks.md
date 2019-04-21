@@ -2,7 +2,9 @@
 comments: true
 title: "Attend to You: Personalized Image Captioning with Context Sequence Memory Networks Review"
 date: 2018-03-06 03:31
-categories: 2017 CNN memory network generative-model 
+tags: 2017 CNN memory network generative-model
+categories: 
+          - paper review 
 ---
 # Abstract
 - 다양한 타입의 context 정보에 대한 저장소로 memory를 이용, 이전에 생성된 단어들을 memory에 추가, CNN을 이용해는 memory 정보를 추출하는 과정을 통해 개인화된 captioning을 할 수 있었다.

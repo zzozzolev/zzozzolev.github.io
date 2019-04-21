@@ -2,7 +2,9 @@
 comments: true
 title: "[Stanford NLP] Lecture 3 GloVe-Global Vectors for Word Representation"
 date: 2017-08-22 
-categories: 2017 stanford-nlp GloVe word-representation 
+tags: 2017 stanford-nlp GloVe word-representation
+categories: 
+          - lecture note 
 ---
 강의 출처:
 

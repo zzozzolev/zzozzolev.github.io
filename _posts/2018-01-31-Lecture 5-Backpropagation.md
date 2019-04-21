@@ -2,7 +2,9 @@
 comments: true
 title: "[Stanford NLP] Lecture 5-Backpropagation"
 date: 2017-09-04 
-categories: 2017 stanford-nlp backprop
+tags: 2017 stanford-nlp backprop
+categories: 
+          - lecture note
 ---
 강의 출처:
 

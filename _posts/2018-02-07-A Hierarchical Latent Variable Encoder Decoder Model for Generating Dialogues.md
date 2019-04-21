@@ -2,7 +2,9 @@
 comments: true
 title: "A Hierarchical Latent Variable Encoder Decoder Model for Generating Dialogues Review"
 date: 2018-02-07 15:56
-categories: 2016 RNN encoder-decoder generative-model 
+tags: 2016 RNN encoder-decoder generative-model
+categories: 
+          - paper review 
 ---
 # Abstract
 - RNN의 hidden state는 해당 문장내에서의 token의 정보를 요약하는 데 집중하기 때문에, 오래 전의 문장들에 대한 정보는 잘 저장하지 못했다. 하지만 VHRED의 경우, 현재 time step에서의 context RNN의 output과 다음 sub-sequence에 대한 encoder RNN의 output을 input으로 받는 latent variable z를 이용했고, token에 대한 요약을 넘어 더 높은 수준의 정보를 저장할 수 있게 됐다. 

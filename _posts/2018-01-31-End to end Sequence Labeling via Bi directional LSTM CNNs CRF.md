@@ -2,7 +2,9 @@
 comments: true
 title: "End to end Sequence Labeling via Bi directional LSTM CNNs CRF Review"
 date: 2018-01-25
-categories: 2016 LSTM CNN CRF sequence-labeling 
+tags: 2016 LSTM CNN CRF sequence-labeling
+categories: 
+          - paper review 
 ---
 ## Abstract
   
