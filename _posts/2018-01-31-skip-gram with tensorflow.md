@@ -2,7 +2,9 @@
 comments: true
 title: "skip-gram with tensorflow"
 date: 2017-07-25
-categories: skip-gram tensorflow 
+tags: skip-gram tensorflow
+categories: 
+           - implementaion 
 ---
 * 해당 코드는 오픈 소스임을 밝힌다. 
 

@@ -2,7 +2,9 @@
 comments: true
 title: "Improved Semantic RepresentationsFrom Tree-Structured LongShort-TermMemory Networks Review"
 date: 2018-01-18
-categories: 2015 Tree-LSTM 
+tags: 2015 Tree-LSTM
+categories: 
+          - paper review
 ---
 ## 1. Long Short-Term Memory Networks
 

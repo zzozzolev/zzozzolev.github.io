@@ -2,7 +2,9 @@
 comments: true
 title: "A Hierarchical Recurrent Encoder Decoder for Generative Context Aware Query Suggestion Review"
 date: 2018-01-31 20:56
-categories: 2015 RNN encoder-decoder generative-model 
+tags: 2015 RNN encoder-decoder generative-model
+categories: 
+          - paper review 
 ---
 # Abstract
 - 임의의 길이를 갖는 이전 쿼리 sequence를 고려할 수 있는 확률적 suggestion 모델이다. 즉, 맥락을 알아내 generation하는 모델이다. 각각의 encoder와 decoder에 GRU를 이용했고 LTR 알고리즘을 사용했다. HRED를 사용하니 빈번하지 않은 context에 대해서도 잘 예측할 수 있었다.

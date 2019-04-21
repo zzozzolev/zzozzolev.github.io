@@ -2,7 +2,9 @@
 comments: true
 title: "[Stanford NLP] Lecture 8-Recurrent Neural Networks and Language Models"
 date: 2017-10-14 
-categories: 2017 stanford-nlp RNN Language-model
+tags: 2017 stanford-nlp RNN Language-model
+categories: 
+          - lecture note
 ---
 
 ![Imgur](https://i.imgur.com/uq7ETOp.png)

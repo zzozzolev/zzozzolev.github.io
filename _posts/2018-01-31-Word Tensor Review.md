@@ -2,7 +2,9 @@
 comments: true
 title: "Word Tensor Review"
 date: 2017-11-03
-categories: 2017 word-tensor
+tags: 2017 word-tensor
+categories: 
+          - explanation
 ---
 ## Word Tensor
 - 만약 word vector를 3D tensor로 만들면 어떨까?
