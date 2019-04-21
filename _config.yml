@@ -17,7 +17,7 @@ description              : "자연어 처리에 대해 올리는 블로그입니
 url                      : "https://zzozzolev.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : "/assets/images/teaser.png"
+teaser                   : "assets/images/bio/teaser.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -86,7 +86,7 @@ analytics:
 # Site Author
 author:
   name             : "zzlev"
-  avatar           : "https://i.imgur.com/zGalsyo.png"
+  avatar           : "assets/images/bio/profile_image.jpeg"
   bio              : "Kor lang-liter & Comp-Sci"
   location         : "Seoul"
   email            :
@@ -98,7 +98,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           :
+  github           : "zzozzolev"
   gitlab           :
   google_plus      :
   keybase          :
@@ -121,6 +121,7 @@ author:
 include:
   - .htaccess
   - _pages
+  - assets/images
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -252,7 +253,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: false
       comments: true
       share: true
       related: true
